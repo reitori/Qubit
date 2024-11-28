@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{9dfe9d8a-3d76-4249-9af4-3826bcf77218}</ProjectGuid>
+    <RootNamespace>Qubit</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)bin\$(Configuration)-$(Platform)\$(ProjectName)\</OutDir>
+    <IntDir>$(SolutionDir)bin-int\$(Configuration)-$(Platform)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)bin\$(Configuration)-$(Platform)\$(ProjectName)\</OutDir>
+    <IntDir>$(SolutionDir)bin-int\$(Configuration)-$(Platform)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>QBT_BUILD_DLL;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)Qubit\src\Qubit\PCH;$(SolutionDir)Qubit\Dependencies\STB_IMAGE;$(SolutionDir)Qubit\src;$(SolutionDir)GLAD\include;$(SolutionDir)GLFW\include;$(SolutionDir)Qubit\Dependencies\GLM\glm;$(SolutionDir)SPDLOG\SPDLOG\include;$(SolutionDir)ImGui;$(SolutionDir)Assimp\include;$(SolutionDir)Assimp\include\assimp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>QubitPCH.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)GLFW\lib-vc2019;$(SolutionDir)Assimp\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;glfw3dll.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;assimp-vc142-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>QBT_BUILD_DLL;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)Qubit\src\Qubit\PCH;$(SolutionDir)Qubit\Dependencies\STB_IMAGE;$(SolutionDir)Qubit\src;$(SolutionDir)GLAD\include;$(SolutionDir)GLFW\include;$(SolutionDir)Qubit\Dependencies\GLM\glm;$(SolutionDir)SPDLOG\SPDLOG\include;$(SolutionDir)ImGui;$(SolutionDir)Assimp\include;$(SolutionDir)Assimp\include\assimp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>QubitPCH.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)GLFW\lib-vc2019;$(SolutionDir)Assimp\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;glfw3dll.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;assimp-vc142-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="Dependencies\STB_IMAGE\stb_image\stb_image.h" />
+    <ClInclude Include="src\include\Qubit.h" />
+    <ClInclude Include="src\Qubit\Application\Application.h" />
+    <ClInclude Include="src\Qubit\Application\Base\ApplicationWindow.h" />
+    <ClInclude Include="src\Qubit\Core\Core.h" />
+    <ClInclude Include="src\Qubit\Core\EntryPoint.h" />
+    <ClInclude Include="src\Qubit\Core\Log.h" />
+    <ClInclude Include="src\Qubit\ECS\Component.h" />
+    <ClInclude Include="src\Qubit\ECS\Entity.h" />
+    <ClInclude Include="src\Qubit\ECS\System.h" />
+    <ClInclude Include="src\Qubit\Events\ApplicationEvent.h" />
+    <ClInclude Include="src\Qubit\Layer\LayerStack.h" />
+    <ClInclude Include="src\Qubit\Layer\Layer\Layer.h" />
+    <ClInclude Include="src\Qubit\Platform\GUI\ApplicationGUI.h" />
+    <ClInclude Include="src\Qubit\Platform\GUI\UI\SceneViewGUI.h" />
+    <ClInclude Include="src\Qubit\Platform\Renderer\Renderer.h" />
+    <ClInclude Include="src\Qubit\Platform\Renderer\Utility\Camera.h" />
+    <ClInclude Include="src\Qubit\Platform\Renderer\Utility\Framebuffer.h" />
+    <ClInclude Include="src\Qubit\Platform\Renderer\Utility\Shader.h" />
+    <ClInclude Include="src\Qubit\Platform\Renderer\Utility\Texture.h" />
+    <ClInclude Include="src\Qubit\Window\OpenGL\Base\Shader.h" />
+    <ClInclude Include="src\Qubit\Events\Base\KeyCodes.h" />
+    <ClInclude Include="src\Qubit\Events\Base\MouseCodes.h" />
+    <ClInclude Include="src\Qubit\Events\Event.h" />
+    <ClInclude Include="src\Qubit\Events\KeyboardEvent.h" />
+    <ClInclude Include="src\Qubit\Events\MouseEvent.h" />
+    <ClInclude Include="src\Qubit\Window\OpenGL\Implementation.h" />
+    <ClInclude Include="src\Qubit\OtherUtility\pair.h" />
+    <ClInclude Include="src\Qubit\PCH\QubitPCH.h" />
+    <ClInclude Include="src\Qubit\Core\PlatformDetection.h" />
+    <ClInclude Include="src\Qubit\Window\windowAbstraction.h" />
+    <ClInclude Include="src\Qubit\Window\windowInput.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Dependencies\STB_IMAGE\stb_image\stb_image.cpp" />
+    <ClCompile Include="src\Qubit\Application\Base\ApplicationWindow.cpp" />
+    <ClCompile Include="src\Qubit\Application\Application.cpp" />
+    <ClCompile Include="src\Qubit\Core\Log.cpp" />
+    <ClCompile Include="src\Qubit\ECS\System.cpp" />
+    <ClCompile Include="src\Qubit\Layer\LayerStack.cpp" />
+    <ClCompile Include="src\Qubit\Layer\Layer\Layer.cpp" />
+    <ClCompile Include="src\Qubit\Platform\GUI\ApplicationGUI.cpp" />
+    <ClCompile Include="src\Qubit\Platform\GUI\UI\SceneViewGUI.cpp" />
+    <ClCompile Include="src\Qubit\Platform\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\Qubit\Platform\Renderer\Utility\Camera.cpp" />
+    <ClCompile Include="src\Qubit\Platform\Renderer\Utility\Framebuffer.cpp" />
+    <ClCompile Include="src\Qubit\Platform\Renderer\Utility\Shader.cpp" />
+    <ClCompile Include="src\Qubit\Platform\Renderer\Utility\Texture.cpp" />
+    <ClCompile Include="src\Qubit\Window\OpenGL\Implementation.cpp" />
+    <ClCompile Include="src\Qubit\PCH\QubitPCH.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">QubitPCH.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">QubitPCH.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="src\Qubit\Window\OpenGL\windowInput.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GLAD\GLAD.vcxproj">
+      <Project>{ebe2d778-34ab-466f-a445-3905230788b6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\ImGui\ImGui.vcxproj">
+      <Project>{36653f07-7f81-451d-a709-075f5242f5e7}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\Qubit\Platform\Renderer\Shaders\FragmentLighting.glsl" />
+    <None Include="src\Qubit\Platform\Renderer\Shaders\FragmentLightSource.glsl" />
+    <None Include="src\Qubit\Platform\Renderer\Shaders\FragmentNormal.glsl" />
+    <None Include="src\Qubit\Platform\Renderer\Shaders\VertexLighting.glsl" />
+    <None Include="src\Qubit\Platform\Renderer\Shaders\VertexLightSource.glsl" />
+    <None Include="src\Qubit\Platform\Renderer\Shaders\VertexNormal.glsl" />
+    <None Include="src\Qubit\Platform\Renderer\Utility\OpenGLContext.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
